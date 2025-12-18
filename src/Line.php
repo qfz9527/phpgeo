@@ -168,7 +168,7 @@ class Line implements GeometryInterface
         $latMid = atan2($C->getZ(), sqrt($C->getX() ** 2 + $C->getY() ** 2));
         $lngMid = $lng1 + atan2($C->getY(), $C->getX());
 
-        return new Coordinate(rad2deg($latMid), rad2deg($lngMid));
+        return new Coordinate(rad2deg($latMid), rad2deg($lngMid),$this->point1->getEllipsoid());
     }
 
     /**
@@ -213,7 +213,7 @@ class Line implements GeometryInterface
         $lat = atan2($z, sqrt($x ** 2 + $y ** 2));
         $lng = atan2($y, $x);
 
-        return new Coordinate(rad2deg($lat), rad2deg($lng));
+        return new Coordinate(rad2deg($lat), rad2deg($lng),$this->point1->getEllipsoid());
     }
 
     /**
